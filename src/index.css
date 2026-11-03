@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #070b16;
+  color: #e2e8f0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0b1120; }
+::-webkit-scrollbar-thumb { background: #243049; border-radius: 8px; }
+
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+@keyframes pop { 0% { transform: scale(.85); opacity: 0 } 70% { transform: scale(1.04) } 100% { transform: scale(1); opacity: 1 } }
+@keyframes shine { 0% { background-position: 0% 50% } 100% { background-position: 200% 50% } }
+@keyframes blink { 50% { opacity: 0 } }
+@keyframes shake { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-6px) } 75% { transform: translateX(6px) } }
+@keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1 } 100% { transform: translateY(110vh) rotate(720deg); opacity: .9 } }
+@keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(34,211,238,.5) } 100% { box-shadow: 0 0 0 16px rgba(34,211,238,0) } }
+@keyframes grow { from { width: 0 } }
+
+.anim-fade-up { animation: fadeUp .6s cubic-bezier(.2,.8,.2,1) both; }
+.anim-pop { animation: pop .45s cubic-bezier(.2,.8,.2,1) both; }
+.anim-float { animation: floaty 5s ease-in-out infinite; }
+.anim-shake { animation: shake .35s ease; }
+.anim-ring { animation: pulseRing 1.8s infinite; }
+.cursor::after { content: "▌"; animation: blink 1s steps(1) infinite; color: #22d3ee; }
+
+.gradient-text {
+  background: linear-gradient(90deg, #22d3ee, #a78bfa, #f472b6, #22d3ee);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+.glass {
+  background: rgba(15, 23, 42, .65);
+  border: 1px solid rgba(148, 163, 184, .15);
+  backdrop-filter: blur(10px);
+}
+
+.tok-k { color: #c084fc; }
+.tok-s { color: #86efac; }
+.tok-c { color: #64748b; font-style: italic; }
+.tok-n { color: #fbbf24; }
+.tok-f { color: #67e8f9; }
